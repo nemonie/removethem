@@ -294,12 +294,61 @@ body {
     top: 0;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 4px;
-}
-
-.game-message-text{
-    text-align: center;
-    margin-top: 200px;
-    font-size: 60px;
     color: #EEE;
     text-shadow: #000 0 0 4px;
+    -webkit-animation: fadeIn 500ms ease;
+    -moz-animation: fadeIn 500ms ease;
+    animation: fadeIn 500ms ease;
+}
+
+.game-message-title {
+    text-align: center;
+    margin-top: 100px;
+    font-size: 60px;
+    text-shadow: #333 0 0 10px;
+}
+
+.game-message-text {
+    margin-top: 50px;
+    font-size: 24px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.game-message-per {
+    margin: 0 10px;
+    font-size: 32px;
+    text-shadow: #666 0 0 10px;
+}
+
+.game-message-text p {
+    margin: 0 0 20px 0;
+}
+
+.game-message-btn {
+    margin: 50px 80px 0 80px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    background: #a76262;
+    font-size: 18px;
+    text-shadow: none;
+    border-radius: 5px;
+    box-shadow: #666 0 0 10px;
+}
+
+.game-tip {
+    display: none;
+    position: absolute;
+    z-index: 8;
+    width: 302px;
+    text-align: center;
+    left: 100px;
+    top: 200px;
+    font-size: 96px;
+    -webkit-animation: remove 800ms ease;
+    -moz-animation: remove 800ms ease;
+    animation: remove 800ms ease;
+    color: #fdf9f0;
+    text-shadow: #666 0 0 5px;
 }

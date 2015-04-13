@@ -8,20 +8,22 @@ function HTMLActuator() {
 // 主函数，帧刷新
 HTMLActuator.prototype.actuate = function (grid, metadata) {
     this.refreshGrid(grid, metadata);
-    this.updateData(metadata);
+};
+
+HTMLActuator.prototype.showTip = function (text) {
+    var tip = document.querySelector('.game-tip');
+    tip.innerHTML = text;
+    tip.style.display = 'block';
 };
 
 // 根据传递数据刷新数据界面
 HTMLActuator.prototype.updateData = function (metadata) {
     // combo
-    if (metadata.combo > 1) {
-        console.info('Great! Combo ' + metadata.combo + '!');
-    }
     document.querySelector('.combo-value').innerHTML = metadata.combo + 'x';
     // score
     var scoreAdd = metadata.score - this.score;
     if (scoreAdd != 0 && !metadata.init) {
-        console.info('You get ' + scoreAdd + '!');
+        this.showTip('+' + scoreAdd);
     }
     document.querySelector('.score-value').innerHTML = metadata.score;
     this.score = metadata.score;
@@ -41,12 +43,51 @@ HTMLActuator.prototype.updateData = function (metadata) {
     // line
     document.querySelector('.game-level').innerHTML = 'LEVEL ' + metadata.level;
     document.querySelector('.game-progress-inner').setAttribute('style', 'width:' + metadata.line / metadata.levelLine * 100 + '%;');
-    if (metadata.level != 1 && metadata.line == 0) {
+    if (metadata.level != 1 && metadata.line == 0 && !metadata.init && metadata.remove.length != 0) {
         console.info('Congratulation！ Level up to lv' + metadata.level + '!');
     }
     // if over
     if (metadata.over) {
-        console.info('Sorry！ Game over!');
+        var per = (metadata.score / 9.1).toFixed(2);
+        per = per >= 100 ? 99.21 : per;
+        var text = '';
+        switch (Math.floor(per / 10)) {
+        case 0:
+            text = '少侠，不给力啊，要不您再试试？';
+            break;
+        case 1:
+            text = '没事，您这是第一次玩吧~';
+            break;
+        case 2:
+            text = '恭喜，您已经成功入门啦~';
+            break;
+        case 3:
+            text = '我...我知道你是瞎玩的，对不？';
+            break;
+        case 4:
+            text = '看，我就说嘛，不能贪COMBO吧！';
+            break;
+        case 5:
+            text = '哎呀，一不小心就无路可走了呢~';
+            break;
+        case 6:
+            text = '哇，您已经超越一般人的水平啦~';
+            break;
+        case 7:
+            text = '您已经很强了，真的，不骗你~';
+            break;
+        case 8:
+            text = '大神，怎么做到的？求抱大腿！';
+            break;
+        case 9:
+            text = '拯救宇宙？我看只有您可以了！';
+            break;
+        }
+
+        document.querySelector('.game-message-text').innerHTML = '<p>您的得分已击败全球<span class="game-message-per">' + per + '%</span>的玩家！</p><p>【' + text + '】</p>';
+        document.querySelector('.game-message').style.display = 'block';
+    } else {
+        document.querySelector('.game-message').style.display = 'none';
     }
 };
 
@@ -55,11 +96,6 @@ HTMLActuator.prototype.refreshGrid = function (grid, metadata) {
     // 处理逻辑和用户操作处理逻辑类似
     var self = this;
     window.requestAnimationFrame(function () {
-        if (metadata.over) {
-            document.querySelector('.game-message').style.display = 'block';
-        } else {
-            document.querySelector('.game-message').style.display = 'none';
-        }
         if (metadata.init) {
             self.clearContainer();
             self.clearActive();
@@ -96,6 +132,7 @@ HTMLActuator.prototype.refreshGrid = function (grid, metadata) {
                 }
             }
         }
+        self.updateData(metadata);
     });
 };
 

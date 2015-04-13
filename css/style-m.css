@@ -102,8 +102,32 @@
         width: 292px;
         height: 292px;
     }
+    .game-message-title {
+        margin-top: 50px;
+        font-size: 36px;
+    }
     .game-message-text {
-        margin-top: 120px;
-        font-size: 34px;
+        margin-top: 30px;
+        font-size: 14px;
+        padding: 0 20px;
+    }
+    .game-message-per {
+        margin: 0 5px;
+        font-size: 18px;
+    }
+    .game-message-text p {
+        margin: 0 0 8px 0;
+    }
+    .game-message-btn {
+        margin: 30px 40px 0 40px;
+        height: 36px;
+        line-height: 36px;
+        font-size: 14px;
+    }
+    .game-tip {
+        left: 50px;
+        width: 192px;
+        top: 110px;
+        font-size: 48px;
     }
 }

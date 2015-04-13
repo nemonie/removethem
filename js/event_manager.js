@@ -37,6 +37,13 @@ EventManager.prototype.listen = function () {
     this.bindPress('.restart-button', function () {
         this.emit('restart');
     });
+
+    // tip事件绑定
+    document.querySelector('.game-tip').addEventListener('webkitAnimationEnd', function (event) {
+        if (event.animationName == 'remove') {
+            event.target.style.display = 'none';
+        }
+    });
 };
 
 // 用户点击棋盘事件传递

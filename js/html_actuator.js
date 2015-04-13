@@ -84,7 +84,7 @@ HTMLActuator.prototype.updateData = function (metadata) {
             break;
         }
 
-        document.querySelector('.game-message-text').innerHTML = '<p>您的得分已击败全球<span class="game-message-per">' + per + '%</span>的玩家！</p><p>【' + text + '】</p>';
+        document.querySelector('.game-message-text').innerHTML = '<p>您已击败全球<span class="game-message-per">' + per + '%</span>的玩家！</p><p>【' + text + '】</p>';
         document.querySelector('.game-message').style.display = 'block';
     } else {
         document.querySelector('.game-message').style.display = 'none';

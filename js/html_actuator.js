@@ -85,6 +85,7 @@ HTMLActuator.prototype.updateData = function (metadata) {
         }
 
         document.querySelector('.game-message-text').innerHTML = '<p>您已击败全球<span class="game-message-per">' + per + '%</span>的玩家！</p><p>【' + text + '】</p>';
+        document.title = '我的得分为' + metadata.score + '，击败了全球' + per + '%的玩家，不服来战！【完全停不下来的消除游戏】';
         document.querySelector('.game-message').style.display = 'block';
     } else {
         document.querySelector('.game-message').style.display = 'none';
@@ -97,6 +98,7 @@ HTMLActuator.prototype.refreshGrid = function (grid, metadata) {
     var self = this;
     window.requestAnimationFrame(function () {
         if (metadata.init) {
+            document.title = '我在玩【完全停不下来的消除游戏】，你能打败我吗？';
             self.clearContainer();
             self.clearActive();
             grid.cells.forEach(function (column) {

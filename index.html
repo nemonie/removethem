@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Remove them!</title>
+    <title>完全停不下来的消除游戏</title>
 
     <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
     <meta name="author" contect="codermo, codermo@qq.com" />
@@ -22,6 +22,7 @@
 </head>
 
 <body>
+    <img src="favicon.ico" width="0" height="0" alt="" style="display: block;" />
     <div class="game-state">
         <div class="game-state-inner">
             <div class="game-progress">
@@ -198,7 +199,7 @@
         </div>
         <div class="game-about">
             <div>
-                Github: <a href="https://github.com/icodermo/removethem" target="_blank">https://github.com/icodermo/removethem</a>
+                Github [https://github.com/icodermo/removethem]
             </div>
             <div>&copy; codermo 2015.</div>
         </div>
@@ -213,27 +214,6 @@
         <script type="text/javascript" src="js/event_manager.js"></script>
         <script type="text/javascript" src="js/game_manager.js"></script>
         <script type="text/javascript" src="js/application.js"></script>
-        <script type="text/javascript">
-            document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-                window.shareData = {
-                    imgUrl: '',
-                    link: "http://www.codermo.com/removethem/",
-                    title: 'test',
-                    content: 'test'
-                };
-
-                WeixinJSBridge.on('menu:share:timeline', function (argv) {
-                    WeixinJSBridge.invoke('shareTimeline', {
-                        img_url: window.shareData.imgUrl,
-                        img_width: '640',
-                        img_height: '640',
-                        link: window.shareData.link,
-                        desc: window.shareData.content,
-                        title: window.shareData.title
-                    }, function (res) {});
-                });
-            }, false);
-        </script>
 </body>
 
 </html>

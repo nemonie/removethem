@@ -213,6 +213,27 @@
         <script type="text/javascript" src="js/event_manager.js"></script>
         <script type="text/javascript" src="js/game_manager.js"></script>
         <script type="text/javascript" src="js/application.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+                window.shareData = {
+                    imgUrl: '',
+                    link: "http://www.codermo.com/removethem/",
+                    title: 'test',
+                    content: 'test'
+                };
+
+                WeixinJSBridge.on('menu:share:timeline', function (argv) {
+                    WeixinJSBridge.invoke('shareTimeline', {
+                        img_url: window.shareData.imgUrl,
+                        img_width: '640',
+                        img_height: '640',
+                        link: window.shareData.link,
+                        desc: window.shareData.content,
+                        title: window.shareData.title
+                    }, function (res) {});
+                });
+            }, false);
+        </script>
 </body>
 
 </html>

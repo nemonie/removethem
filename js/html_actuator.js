@@ -43,12 +43,9 @@ HTMLActuator.prototype.updateData = function (metadata) {
     // line
     document.querySelector('.game-level').innerHTML = 'LEVEL ' + metadata.level;
     document.querySelector('.game-progress-inner').setAttribute('style', 'width:' + metadata.line / metadata.levelLine * 100 + '%;');
-    if (metadata.level != 1 && metadata.line == 0 && !metadata.init && metadata.remove.length != 0) {
-        console.info('Congratulation！ Level up to lv' + metadata.level + '!');
-    }
     // if over
     if (metadata.over) {
-        var per = (metadata.score / 9.1).toFixed(2);
+        var per = (metadata.score / 8.5).toFixed(2);
         per = per >= 100 ? 99.21 : per;
         var text = '';
         switch (Math.floor(per / 10)) {

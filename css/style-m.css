@@ -70,18 +70,24 @@
         font-size: 12px;
     }
     .combo-best {
-        left: 80px;
+        left: 125px;
     }
     .best-score {
         top: 30px;
         width: 80px;
         font-size: 14px;
     }
-    .restart-button {
-        width: 110px;
+    .btn {
         height: 30px;
         line-height: 30px;
         font-size: 14px;
+    }
+    .restart-button {
+        width: 110px;
+    }
+    .help-button {
+        left: 125px;
+        width: 60px;
     }
     .game-about {
         margin-top: 10px;
@@ -129,5 +135,13 @@
         width: 192px;
         top: 110px;
         font-size: 48px;
+    }
+    .game-help {
+        width: 292px;
+        height: 292px;
+    }
+    .game-help img {
+        width: 292px;
+        height: 292px;
     }
 }

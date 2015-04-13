@@ -210,7 +210,7 @@ body {
 
 .combo-best {
     position: absolute;
-    left: 150px;
+    left: 190px;
     top: 0;
 }
 
@@ -222,11 +222,7 @@ body {
     font-size: 16px;
 }
 
-.restart-button {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 180px;
+.btn {
     height: 60px;
     line-height: 60px;
     text-align: center;
@@ -241,11 +237,25 @@ body {
     user-select: none;
 }
 
-.restart-button:hover {
+.restart-button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 170px;
+}
+
+.help-button {
+    position: absolute;
+    bottom: 0;
+    left: 190px;
+    width: 100px;
+}
+
+.btn:hover {
     background: #a04646;
 }
 
-.restart-button:active {
+.btn:active {
     box-shadow: rgba(0, 0, 0, 0.3) 3px 3px 5px inset;
 }
 
@@ -351,4 +361,19 @@ body {
     animation: remove 800ms ease;
     color: #fdf9f0;
     text-shadow: #666 0 0 5px;
+}
+
+.game-help {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    width: 502px;
+    height: 502px;
+    left: 0;
+    top: 0;
+}
+
+.game-help img {
+    width: 502px;
+    height: 502px;
 }

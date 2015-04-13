@@ -96,6 +96,7 @@ HTMLActuator.prototype.refreshGrid = function (grid, metadata) {
     window.requestAnimationFrame(function () {
         if (metadata.init) {
             document.title = '我在玩【完全停不下来的消除游戏】，你能打败我吗？';
+            document.querySelector('.game-help').style.display = 'none';
             self.clearContainer();
             self.clearActive();
             grid.cells.forEach(function (column) {

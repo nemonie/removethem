@@ -37,6 +37,12 @@ EventManager.prototype.listen = function () {
     this.bindPress('.restart-button', function () {
         this.emit('restart');
     });
+    this.bindPress('.help-button', function () {
+        document.querySelector('.game-help').style.display = 'block';
+    });
+    this.bindPress('.game-help', function () {
+        document.querySelector('.game-help').style.display = 'none';
+    });
 
     // tip事件绑定
     document.querySelector('.game-tip').addEventListener('webkitAnimationEnd', function (event) {

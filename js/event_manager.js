@@ -45,11 +45,15 @@ EventManager.prototype.listen = function () {
     });
 
     // tip事件绑定
-    document.querySelector('.game-tip').addEventListener('webkitAnimationEnd', function (event) {
-        if (event.animationName == 'remove') {
-            event.target.style.display = 'none';
-        }
-    });
+    var eventList = ['webkitAnimationEnd', 'mozAnimationEnd', 'animationend'];
+    for (var i = 0; i < eventList.length; i++) {
+        document.querySelector('.game-tip').addEventListener(eventList[i], function (event) {
+            if (event.animationName == 'remove') {
+                event.target.classList.remove('game-tip-remove');
+                event.target.style.display = 'none';
+            }
+        });
+    }
 };
 
 // 用户点击棋盘事件传递

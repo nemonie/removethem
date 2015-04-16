@@ -356,11 +356,14 @@ body {
     left: 100px;
     top: 200px;
     font-size: 96px;
+    color: #fdf9f0;
+    text-shadow: #666 0 0 5px;
+}
+
+.game-tip-remove {
     -webkit-animation: remove 800ms ease;
     -moz-animation: remove 800ms ease;
     animation: remove 800ms ease;
-    color: #fdf9f0;
-    text-shadow: #666 0 0 5px;
 }
 
 .game-help {

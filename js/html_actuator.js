@@ -14,6 +14,7 @@ HTMLActuator.prototype.showTip = function (text) {
     var tip = document.querySelector('.game-tip');
     tip.innerHTML = text;
     tip.style.display = 'block';
+    tip.classList.add('game-tip-remove');
 };
 
 // 根据传递数据刷新数据界面
@@ -211,14 +212,17 @@ HTMLActuator.prototype.addTile = function (tile) {
 
     wrapper.appendChild(inner);
     this.tileContainer.appendChild(wrapper);
-    wrapper.addEventListener('webkitAnimationEnd', function (event) {
-        if (event.animationName == 'appear') {
-            wrapper.classList.remove('tile-add');
-        }
-        if (event.animationName == 'remove') {
-            wrapper.parentNode.removeChild(wrapper);
-        }
-    });
+    var eventList = ['webkitAnimationEnd', 'mozAnimationEnd', 'animationend'];
+    for (var i = 0; i < eventList.length; i++) {
+        wrapper.addEventListener(eventList[i], function (event) {
+            if (event.animationName == 'appear') {
+                wrapper.classList.remove('tile-add');
+            }
+            if (event.animationName == 'remove') {
+                wrapper.parentNode.removeChild(wrapper);
+            }
+        });
+    }
 };
 
 // 应用class

@@ -1,11 +1,11 @@
-[RemoveThem](http://www.codermo.com/removethem/) — 一款有趣的Web游戏
+[RemoveThem](http://www.codermo.com/app/removethem/) — 一款有趣的Web游戏
 ==================================================
 
 
 游戏简介
 --------------------------------------
 
-7*7 Web上的消除游戏，原生Javascript产品，兼容所有高级浏览器，支持移动端。（[在线试玩](http://www.codermo.com/removethem/)）
+7*7 Web上的消除游戏，原生Javascript产品，兼容所有高级浏览器，支持移动端。（[在线试玩](http://www.codermo.com/app/removethem/)）
 
 
 游戏目的
